@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		/*  resize-html5-canvas-to-fit-window */
+		/*  http://stackoverflow.com/questions/1664785/resize-html5-canvas-to-fit-window  */
+		body, html { margin: 0px;} 
+	</style>
+	
+	<script src="../js/bubbles/bubbles.js"></script>
+</head>
+<body>
+		
+    <div id="canvasBubbles" style="position:relative; height:100%; width:100%">
+		<canvas id="canvas" width="1349" height="361px"></canvas>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+	
+		bubblesMain(new Object({
+							type : 'radial',
+							revolve : 'center',
+							minSpeed : 100,
+							maxSpeed : 500,
+							minSize : 50,
+							maxSize : 250,
+							num : 100,
+							colors : new Array('#FF0000','#FFFFFF','#BBBBBB')
+						}));
+							
+
+</script>
+
+</html>                                 		

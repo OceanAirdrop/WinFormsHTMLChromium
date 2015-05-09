@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
+    <body>
+		<br /><br />
+		<button type="button" onclick="test1()">JavaScript / C# Interaction Test #1 - Call C# SomeFunction() (a simple function)</button> 
+		<br /><br />
+		<button type="button" onclick="test2()">JavaScript / C# Interaction Test #2 - Call C# GetPerson() function</button> 
+		<br />	<br />
+		<button type="button" onclick="Test3()">JavaScript / C# Interaction Test #3 - Call C# ErrorFunction() function</button> 
+		<br /><br />
+		<button type="button" onclick="test4()">JavaScript / C# Interaction Test #4 - Call C# GetListOfPeople() function</button> 	
+		<br /><br />
+		
+		<p >Results<br /></p>
+		
+		<script type="text/javascript">
+			function test1()
+			{
+				var result = winformObj.someFunction();
+
+				$("p").append( result );
+				
+			}
+			
+			function test2()
+			{
+				var result = winformObj.getPerson();
+
+                $("p").append( result );
+			}
+			
+			function test3()
+			{
+				var result = winformObj.errorFunction();
+
+                $("p").append( result );
+			}
+			
+			function test4()
+			{
+				var result = winformObj.getListOfPeople();
+
+                $("p").append( result );
+			}
+			
+		</script>
+
+    </body>
+</html>
