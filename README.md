@@ -8,8 +8,8 @@ The project uses Chrome rendering engine and the Chromium Embedded Framework (CE
 
 This project demonstrates:
 
-Demonstrates displaying HTML in the Chrome control on a WinForms Application.
-Demonstrates calling a JavaScript function from C#.
-Demonstrates calling a C# function from JavaScript.
-Demonstrates calling passing data between C# and JavaScript in either direction.
-Demonstrates calling debuuging HTML/JavaScript using Chrome Dev Tools.
+* Demonstrates displaying HTML in the Chrome control on a WinForms Application.
+* Demonstrates calling a JavaScript function from C#.
+* Demonstrates calling a C# function from JavaScript.
+* Demonstrates calling passing data between C# and JavaScript in either direction.
+* Demonstrates calling debuuging HTML/JavaScript using Chrome Dev Tools.
