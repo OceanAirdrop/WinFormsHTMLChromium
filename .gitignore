@@ -1,2 +1,4 @@
 /ChromeTest/packages
 /ChromeTest/ChromeTest/bin
+/ChromeTest/*.suo
+/ChromeTest/ChromeTest/obj
