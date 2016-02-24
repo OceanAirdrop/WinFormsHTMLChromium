@@ -283,10 +283,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HTMLResources\css\" />
-    <Folder Include="HTMLResources\img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="HTMLResources\html\BasicPage.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
