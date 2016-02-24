@@ -32,7 +32,6 @@ namespace ChromeTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Cef.Initialize();
             m_chromeBrowser = new ChromiumWebBrowser("http://www.maps.google.com");
 
             panel1.Controls.Add(m_chromeBrowser);
@@ -54,7 +53,11 @@ namespace ChromeTest
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Cef.Shutdown();
+            //Comment out Cef.Shutdown() call - it will be automatically called when exiting the application.
+            //Due to a timing issue and the way the WCF service closes it's self in newer versions, it can be best to leave CefSharp to clean it's self up.
+            //Alternative solution is to set the WCF timeout to Zero (or a smaller number) using CefSharp.CefSharpSettings.WcfTimeout = TimeSpan.Zero;
+            // This must be done before creating any ChromiumWebBrowser instance
+            //Cef.Shutdown();
         }
 
         private void buttonShowDevTools_Click(object sender, EventArgs e)
@@ -81,9 +84,9 @@ namespace ChromeTest
             //string page = string.Format("{0}HTMLResources/html/BasicPage.html", GetAppLocation());
             //string page = string.Format("{0}HTMLResources/html/BootstrapExample.html", GetAppLocation());
 
-            string page = string.Format("{0}HTMLEmbeddedResources/html/BootstrapExample.html", GetAppLocation());
-
-            m_chromeBrowser.Load(page);
+            var page = new Uri(string.Format("file:///{0}HTMLResources/html/BootstrapExample.html", GetAppLocation()));
+            
+            m_chromeBrowser.Load(page.ToString());
         }
 
 
@@ -101,14 +104,21 @@ namespace ChromeTest
 
         private void buttonRegisterCSharpObject_Click(object sender, EventArgs e)
         {
+            //To register a JS object, it must occur immediate after the browser has been created
+            //So in this instance we'll create a new browser;
+            panel1.Controls.Remove(m_chromeBrowser);
+
+            var page = new Uri(string.Format("file:///{0}HTMLResources/html/WinformInteractionExample.html", GetAppLocation()));
+
+            m_chromeBrowser = new ChromiumWebBrowser(page.ToString());
+
+            panel1.Controls.Add(m_chromeBrowser);
+
             m_jsInteractionObj = new JavaScriptInteractionObj();
             m_jsInteractionObj.SetChromeBrowser(m_chromeBrowser);
 
             // Register the JavaScriptInteractionObj class with JS
             m_chromeBrowser.RegisterJsObject("winformObj", m_jsInteractionObj);
-
-            string page = string.Format("{0}HTMLResources/html/WinformInteractionExample.html", GetAppLocation());
-            m_chromeBrowser.Load(page);
         }
 
         private void buttonExecJavaScriptFromWinforms_Click(object sender, EventArgs e)

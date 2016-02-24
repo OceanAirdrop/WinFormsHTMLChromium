@@ -25,7 +25,7 @@ namespace ChromeTest.Demos
         {
            // Cef.Initialize();
 
-            string page = string.Format("{0}HTMLEmbeddedResources/html/BootstrapExample.html", GetAppLocation());
+            string page = string.Format("{0}HTMLResources/html/BootstrapExample.html", GetAppLocation());
             m_chromeBrowser = new ChromiumWebBrowser(page);
 
             Controls.Add(m_chromeBrowser);
