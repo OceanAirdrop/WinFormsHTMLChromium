@@ -81,9 +81,9 @@ namespace ChromeTest
             //string page = string.Format("{0}HTMLResources/html/BasicPage.html", GetAppLocation());
             //string page = string.Format("{0}HTMLResources/html/BootstrapExample.html", GetAppLocation());
 
-            string page = string.Format("{0}HTMLEmbeddedResources/html/BootstrapExample.html", GetAppLocation());
-
-            m_chromeBrowser.Load(page);
+            var page = new Uri(string.Format("file:///{0}HTMLResources/html/BootstrapExample.html", GetAppLocation()));
+            
+            m_chromeBrowser.Load(page.ToString());
         }
 
 
