@@ -32,7 +32,6 @@ namespace ChromeTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Cef.Initialize();
             m_chromeBrowser = new ChromiumWebBrowser("http://www.maps.google.com");
 
             panel1.Controls.Add(m_chromeBrowser);
