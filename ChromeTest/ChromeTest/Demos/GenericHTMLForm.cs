@@ -1,4 +1,5 @@
-﻿using CefSharp.WinForms;
+﻿using CefSharp;
+using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
